@@ -1,1 +1,1 @@
-# creativesolutions
+# Creative Solutions: Trip Planner
