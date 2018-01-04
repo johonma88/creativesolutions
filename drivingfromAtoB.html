@@ -3,30 +3,28 @@
 
 <head>
 
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
-    <!-- <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 
-    <!-- <link href="bootstrap.css" rel="stylesheet">
-    <link rel="stylesheet" href="SimpleStarRating.css"> -->
+    <link href="bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="SimpleStarRating.css">
 
 
     <!-- style.css -->
 
-    <!-- <link rel="stylesheet" type="css/txt" href="style.css">
+    <link rel="stylesheet" type="css/txt" href="style.css">
 
 
-    <script type="text/javascript" src="app.js"></script> -->
+    <script type="text/javascript" src="app.js"></script>
 
 
-    <!-- <script src="jquery.js"></script> -->
-    <!-- <script src="./js/jquery.min.js"></script> -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgQWcFFJy5yU1T5N-kgCbqE6q5gZAg_y0&libraries=places&callback=initMap" async defer></script>
-    <!-- <script src="./js/jquery.geocomplete.min.js"></script> -->
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+    <script src="jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
-
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
     <title>Directions service</title>
@@ -126,14 +124,6 @@
         let map;
         let service;
 
-//         $(function () {	
-// 	$("#fromPlace").geocomplete({
-// 	  details: ".geo-details",
-// 	  detailsAttribute: "data-geo"
-// 	});
-
-// });
-
         function initMap() {
             var directionsService = new google.maps.DirectionsService;
             var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -144,21 +134,6 @@
                     lng: -87.65
                 }
             });
-
-        //             // Caching the Selectors		
-        // $Selectors = {
-        //     map: jQuery('#map')[0],
-        //     dirSrc: jQuery('#fromPlace'),
-        //     dirDst: jQuery('#toPlace')
-        // };
-
-        //     function autoCompleteSetup() {
-        // map = new google.maps.places.Autocomplete($Selectors.dirSrc[0]);
-        // map = new google.maps.places.Autocomplete($Selectors.dirDst[0]);
-        // } // autoCompleteSetup Ends
-
-        // autoCompleteSetup();
-        
             infowindow = new google.maps.InfoWindow();
             directionsDisplay.setMap(map);
 
@@ -185,8 +160,8 @@
                     lat: response.routes[0].overview_path[0].lat(),
                     long: response.routes[0].overview_path[0].lng()
                 });
-                for (let index = 1; index < 10; index++) {
-                    let stopIndex = Math.floor(response.routes[0].overview_path.length / 10) * index;
+                for (let index = 1; index < 6; index++) {
+                    let stopIndex = Math.floor(response.routes[0].overview_path.length / 6) * index;
 
                     stops.push({
                         lat: response.routes[0].overview_path[stopIndex].lat(),
@@ -218,7 +193,7 @@
                         },
 
                         radius: 500,
-                        type: ['gas_station']
+                        type: ['landmarks']
                 }, callback);
                 });
             });
@@ -250,6 +225,7 @@
             });
         }
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgQWcFFJy5yU1T5N-kgCbqE6q5gZAg_y0&libraries=places&callback=initMap" async defer></script>
 
 
 </body>
