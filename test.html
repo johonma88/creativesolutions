@@ -4,10 +4,7 @@
         
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
         <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-     
-        <link href="bootstrap.css" rel="stylesheet">
-     
-        <script src="jquery.js"></script>
+  
        
        
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -115,8 +112,8 @@
         <div id="map"></div>
         <script>
           function initMap() {
-            var directionsService = new google.maps.DirectionsService;
-            var directionsDisplay = new google.maps.DirectionsRenderer;
+            var directionsService = new google.maps.places.Autocomplete(input);
+            // var directionsDisplay = new google.maps.Autocomplete.DirectionsRenderer;
             var map = new google.maps.Map(document.getElementById('map'), {
               zoom: 7,
               center: {lat: 41.85, lng: -87.65}
@@ -124,7 +121,7 @@
             directionsDisplay.setMap(map);
     
             var onChangeHandler = function() {
-              calculateAndDisplayRoute(directionsService, directionsDisplay);
+              calculateAndDisplayRoute(input);
             };
             $(".go").click(function(){
                 let toPlace = $('#toPlace').val();
@@ -135,7 +132,7 @@
          
           }
     
-          function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+          function calculateAndDisplayRoute(input) {
             directionsService.route({
               origin: document.getElementById('fromPlace').value,
               destination: document.getElementById('toPlace').value,
@@ -153,9 +150,6 @@
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-     
-
-      
 
         var service = new google.maps.places.PlacesService(map);
         service.nearbySearch({
@@ -221,6 +215,6 @@
     </div>
      </body>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgQWcFFJy5yU1T5N-kgCbqE6q5gZAg_y0&callback=initMap&libraries=places,visualization" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgQWcFFJy5yU1T5N-kgCbqE6q5gZAg_y0&libraries=places,visualization" async defer></script>
   
 </html>
