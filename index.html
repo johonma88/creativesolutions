@@ -16,28 +16,36 @@
         <link rel="stylesheet" type="text/css" href=".\roadtrip.css">
     </head>
     <body>
-        <header>
-                <div class="buttons" style="text-align:right" >
-                        <button id='guest'>Guest</button>
-                        <button id='logIn'>Log In</button>
-                        <button id='signIn'>Sign In</button>
-                    </div>
-        </header>
-            <div class="container-fluid" id="main-header">
-                    <div class="row">
-                        <div class="col-md-8">
-                            <h1 id="main-title">Road Trip Planner</h1>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <h3 id="main-quote">We'll plan your trip, so you dont have to.</h3>
-                        </div>
-            </div>
-        
-        </div>
+<div class="container">
     
-           
-    </body>
+      <header>
+        <h2><a href="#"><i class="ion-plane"></i> Road Trip Planner</a></h2>
+        <nav>
+          <ul>
+            <li>
+              <a href="#" title="Hotels">Guest Login</a>
+            </li>
+            <li>
+              <a href="#" title="Flights">Google Login</a>
+            </li>
+            <li>
+              <a href="#" title="Tours">About Us</a>
+            </li>
+          </ul>
+        </nav>
+      </header>
     
+      <div class="cover">
+        <h1>So...Where do you want to go?</h1>
+        <form  class="flex-form">
+          <label for="from">
+            <i class="ion-location"></i>
+          </label>
+          <input type="search" placeholder="Starting Location">
+          <input type="submit" value="Search">
+        </form>
+      </div>
+    
+    </div>
+</body>
 </html>
