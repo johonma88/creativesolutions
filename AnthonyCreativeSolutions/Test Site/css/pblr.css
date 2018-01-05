@@ -1,0 +1,380 @@
+/*
+@brief pebblar landing page css
+@file pblr.css
+@author	JL
+@copyright Copyright(c) 2017 pebblar
+@ver 1.0
+*/
+
+/* Move down content because we have a fixed navbar that is 6rem tall */
+
+body {
+	font-family: 'Noto Sans', sans-serif;
+	padding-top: 6rem;
+	color: #000000;
+}
+
+.fixed-top-height {
+	display: inline-block;
+	height: 100%;
+}
+
+#pblrdevsec {
+	padding-top: 0rem;
+    padding-bottom: 0rem;
+    margin-bottom: 6rem;
+}
+
+#pblrdevimg {
+	max-width: 100%;
+}
+
+#pblrdevtxt {
+	padding-top: 2.5rem;
+	padding-bottom: 2.5rem;
+	text-align: center;
+}
+#pblrdevapplestoreimg {
+	text-align: center;
+}
+
+.nav-link {
+	overflow: hidden;
+    white-space: nowrap;
+}
+
+.navbar-light .navbar-nav .active>.nav-link:hover {
+	color: #E98B3A;
+}
+
+.btn-outline-success {
+    color: #E98B3A;
+    background-color: transparent;
+    background-image: none;
+    border-color: #E98B3A;
+	cursor: pointer !important;
+}
+
+.btn-outline-success:focus {
+    box-shadow: 0 0 0 0rem rgba(233,139,58,1);
+}
+
+.btn-outline-success:not([disabled]):not(.disabled):active {
+    color: #FFF;
+    background-color: #E98B3A;
+    border-color: #E98B3A;
+    box-shadow: 0 0 0 0.2rem rgba(212,110,55,1);
+}
+
+.btn-outline-success:hover {
+    color: #FFF;
+    background-color: #E98B3A;
+    border-color: #E98B3A;
+}
+
+.pblr-nav-item:hover {
+    color: #E98B3A;
+    border-color: #E98B3A;
+}
+
+.pblr-lndng-hdr {
+	font-size: 2rem;
+  	font-weight: 700;
+  	line-height: 1;
+}
+
+@media (min-width: 576px) {
+	.pblr-lndng-hdr {
+		font-size: 2.5rem;
+	  	font-weight: 700;
+	  	line-height: 1;
+  	    margin-bottom: 1.5rem;
+	}
+}
+
+.pblr-lndng-subhdr {
+	font-size: 1.25rem;
+  	font-weight: 400;
+  	line-height: 1;
+  	margin-bottom: 2rem;
+}
+
+.pblr-sec {
+	padding-top: 0rem;
+    padding-bottom: 0rem;
+	padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.pblr-sec-hdr {
+	font-size: 1.75rem;
+	font-weight: 700;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.pblr-sec-txt {
+	font-size: 1.25rem;
+}
+
+.pblr-hr {
+    border: 0;
+    border-top: 1px solid #F0F0F0;
+    margin: 0;
+}
+
+#pblrtstmnldvdr {
+	margin-top: 7rem
+}
+
+#pblrftrdvdr {
+	margin-top: 10rem
+}
+
+.pblr-ftr-link {
+	padding: 1rem 1rem;
+	overflow: hidden;
+    white-space: nowrap;
+    color: #000000;
+}
+
+.pblr-ftr-link:hover {
+    text-decoration: none;
+    color: #E98B3A;
+}
+
+.pblr-cpyrht {
+	text-align: right;
+	vertical-align: middle;
+	margin: 0;
+	white-space: nowrap;
+}
+
+.pblr-invtxt {
+	color: #FFF;
+}
+
+.hide {
+    display: none;
+}
+
+input {
+  outline: none;
+}
+
+::-webkit-input-placeholder { /* Chrome */
+  color: #000000;
+  transition: opacity 250ms ease-in-out;
+}
+
+:focus::-webkit-input-placeholder {
+  opacity: 0.5;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+  color: #000000;
+  transition: opacity 250ms ease-in-out;
+}
+
+:focus:-ms-input-placeholder {
+  opacity: 0.5;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+  color: #000000;
+  opacity: 1;
+  transition: opacity 250ms ease-in-out;
+}
+
+:focus::-moz-placeholder {
+  opacity: 0.5;
+}
+
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: #000000;
+  opacity: 1;
+  transition: opacity 250ms ease-in-out;
+}
+
+:focus:-moz-placeholder {
+  opacity: 0.5;
+}
+
+.pblr-city-input {
+	padding-top: .5rem;
+    padding-bottom: .5rem;
+	padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    color: #000000;
+	text-align: center;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid #ADAEAA;
+    border-radius: .3125rem;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.pblr-city-input:focus {
+	border-color: #E98B3A;
+}
+
+.pblr-city-strtbut {
+	padding: .5rem 3rem;
+	font-size: 1rem;
+    vertical-align: initial;
+}
+
+@media (min-width: 576px) {
+	.pblr-city-input {
+		font-size: 1.125rem;
+	}
+
+	.pblr-city-strtbut {
+		font-size: 1.125rem;
+	}
+}
+
+.pblr-text-emp:hover {
+	color: #E98B3A;
+}
+
+.pblr-toggler.navbar-toggler:focus {
+	outline: none;
+}
+
+.pblr-toggler.navbar-toggler:hover {
+	border-color: #E98B3A;
+
+}
+.navbar-light .navbar-toggler-icon:hover {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(233, 139, 58, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar {
+	width: 100%;
+    padding: .5rem 0;
+	z-index: 999;
+}
+
+#navbartop {
+	border-bottom: 1px solid #F0F0F0;
+}
+
+
+.navbar-brand {
+	padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 0rem;
+    padding-right: 1rem;
+    margin-right: 1rem;
+}
+
+.navbar-expand-md>.container {
+	padding-right: 2rem;
+	padding-left: 2rem;
+}
+
+.container {
+  	width: 100%;
+  	max-width: 1160px;
+  	padding-left: 2rem;
+  	padding-right: 2rem;
+  	margin-left: auto;
+	margin-right: auto;
+}
+
+.jumbotron {
+	padding-top: 6rem;
+    padding-bottom: 5rem;
+    background-color: #FFF;
+}
+
+@media (min-width: 576px) {
+  	.jumbotron {
+  		padding-top: 8rem;
+	    padding-bottom: 6rem;
+	    padding-left: 2rem;
+	    padding-right: 2rem;
+	}
+}
+
+@media (min-width: 768px) {
+  	.jumbotron {
+  		padding-top: 8rem;
+	    padding-bottom: 6rem;
+	    padding-left: 2rem;
+	    padding-right: 2rem;
+	}
+}
+
+@media (min-width: 950px) {
+  	.jumbotron {
+  		padding-top: 10rem;
+	    padding-bottom: 9rem;
+	    padding-left: 2rem;
+	    padding-right: 2rem;
+	}
+}
+
+.jumbotron-fluid {
+	padding-left: 0;
+  	padding-right: 0;
+  	border-radius: 0;
+}
+
+@media (min-width: 768px) {
+	.navbar-expand-md .navbar-nav .nav-link {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+	}
+
+	.pblr-nav-item {
+		border: 1px solid #ADAEAA;
+		border-radius: 4px;
+		-webkit-font-smoothing: antialiased;
+	}
+}
+
+@media (min-width: 992px) {
+	.navbar-expand-md .navbar-nav .nav-link {
+		padding-left: 1.25rem;
+		padding-right: 1.25rem;
+	}
+}
+
+.testimonial {
+	margin-top: 6rem;
+	font-size: 1.125rem;
+	font-weight: 200;
+	line-height: 25px;
+	word-wrap: break-word;
+}
+
+.tstnmlname {
+	font-weight: 600;
+}
+
+.pblr-footer {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.social-links a {
+    display: block;
+    width: 22px;
+    height: 18px;
+    overflow: hidden;
+    text-align: center;
+    margin-right: 1.5rem;
+    margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+
+.social-links img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
