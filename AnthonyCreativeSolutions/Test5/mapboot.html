@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+    #panel {
+              background-color: #fff;
+              padding: 15px;
+              border: 1px solid #999;
+          }
+          #mode-selector {
+        color: #fff;
+        background-color: #4d90fe;
+        margin-left: 12px;
+        padding: 5px 11px 0px 11px;
+      }
+
+      #mode-selector label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+      }
+      #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 750px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+      }
+
+      #pac-input:focus {
+        border-color: #4d90fe;
+      }
+      .map_canvas { 
+  width: 600px; 
+  height: 400px; 
+  margin: 10px 20px 10px 0;
+}
+/*
+      For detailed tutorial visit:
+      https://thewebstorebyg.wordpress.com/2013/01/11/custom-directions-panel-with-google-maps-api-v3/ 
+
+      Author: Giri Jeedigunta
+      Last Edited: July 2017.
+      Visit: http://thewebstorebyg.wordpress.com/ for more tutorials. 
+
+      NOTE:
+      To use the Google Maps JavaScript API Versions 3.27 and above, 
+      you must generate your own API key and add a list of  domains you intend to use this API. 
+      More details – https://developers.google.com/maps/documentation/javascript/get-api-key
+ */
+
+ /* body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 1000px;
+    overflow: hidden;
+    position: relative;
+    font-family: "Trebuchet MS";
+    position: relative;
+} */
+
+/* #mapCanvas {
+    margin: 0 auto;
+    width: 100%;
+    height: 90%
+} */
+
+#directionsPanel {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 275px;
+    height: 600px;
+    background: #fff;
+    border: 1px solid #999;
+    border-left: none;
+    border-top: none;
+    padding: 10px 15px;
+}
+
+#directionsPanel a {
+    display: block;
+    text-decoration: none;
+    clear: both;
+}
+
+#useGPS {
+    margin: 3px auto;
+    background: #FFC903;
+    color: #000;
+    padding: 3px;
+    border: 1px solid #000;
+    text-align: center;
+    font-size: 13px;
+}
+
+.or {
+    clear: both;
+    padding: 0;
+    text-align: center;
+    color: #000;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.directionInputs label {
+    background: #FFC903;
+    color: #000;
+    padding: 2px 8px;
+    border: 1px solid #000;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 10px
+}
+
+.directionInputs input {
+    width: 234px;
+    height: 20px;
+    border: 1px solid #000;
+    font-size: 15px;
+}
+
+.directionInputs #getDirections,
+.directionInputs #paneReset {
+    display: inline-block;
+    background: #FFC903;
+    color: #000;
+    width: 165px;
+    padding: 3px;
+    text-align: center;
+    border: 1px solid #000;
+    font-size: 13px;
+}
+
+.directionInputs #paneReset {
+    width: 85px
+}
+
+#paneToggle {
+    position: absolute;
+    background: #FFC903;
+    color: #000;
+    width: 15px;
+    padding: 0 3px;
+    text-align: center;
+    border: 1px solid #000;
+    font-weight: bold;
+    font-size: 16px;
+    border-left: none;
+    top: 0;
+    right: -23px;
+}
+
+#directionSteps {
+    clear: both;
+    width: 100%;
+    height: 100%;
+    margin: 10px 0 0 0;
+    font-size: 11px;
+    line-height: normal;
+    height: 395px;
+    overflow: auto;
+}
+
+#directionSteps p {
+    font-size: 13px;
+    color: #999
+}
+
+.gmap-control-container {
+    margin: 5px;
+}
+
+.gmap-control {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    -moz-user-select: none;
+    background: yellow;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    color: #333333 !important;
+    cursor: pointer;
+    direction: ltr;
+    font-family: Arial, sans-serif !important;
+    font-size: 12px !important;
+    font-weight: normal;
+    min-width: 54px;
+    overflow: hidden;
+    padding: 8px 7px 7px;
+    position: relative;
+    right: -14px;
+    top: 5px;
+    text-align: center;
+}
+
+.gmap-control-active {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #6D8ACC;
+    border-color: #717B87 -moz-use-text-color #717B87 #717B87;
+    border-style: solid none solid solid;
+    border-width: 1px 0 1px 1px;
+    color: #FFFFFF !important;
+    font-weight: bold;
+}
+
+    </style>
+
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+
+        <div id="mapCanvas"></div>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-4">
+                    <div id="directionsPanel">
+                            <a href="#geoLocation" id="useGPS">Use My Location</a>
+                            <p class="or">[OR]</p>
+                            <div class="directionInputs">
+                                <form>
+                                    <p>
+                                        <label>A</label>
+                                        <input type="text" value="" id="dirSource" />
+                                    </p>
+                                    <p>
+                                        <label>B</label>
+                                        <input type="text" value="" id="dirDestination" />
+                                    </p>
+                                    <a href="#getDirections" id="getDirections">Get Directions</a>
+                                    <a href="#reset" id="paneReset">Reset</a>
+                                </form>
+                            </div>
+                            <div id="directionSteps">
+                                <p class="msg">Direction Steps Will Render Here</p>
+                            </div>
+                            <a href="#toggleBtn" id="paneToggle" class="out">&lt;</a>
+                        </div>
+            </div>
+
+            <div class="col-sm-4">
+                    <div id="mode-selector" class="controls">
+                            <input type="radio" name="type" id="changemode-walking">
+                            <label for="changemode-walking">Walking</label>
+                      
+                            <input type="radio" name="type" id="changemode-transit">
+                            <label for="changemode-transit">Transit</label>
+                      
+                            <input type="radio" name="type" id="changemode-driving" checked="checked">
+                            <label for="changemode-driving">Driving</label>
+                          </div>
+            </div>
+
+            <div class="col-sm-4">
+                <h3>Search Places</h3>
+                    <div class="container">
+                            <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                              </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <h3>Map</h3>
+            <div class="col-sm-12">
+                    <!-- <div id="mapCanvas"></div> -->
+        </div>
+    </div>
+
+        <div class="row">
+            <h3>InfoWindow</h3>
+                <div class="col-sm-12">
+                        <pre id="logger">Log:</pre>
+                </div>
+            </div>
+    </div>
+    
+
+    <!-- <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script> -->
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+    <!-- <script src="jquery.geocomplete.js"></script>
+    <script src="logger.js"></script> -->
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgQWcFFJy5yU1T5N-kgCbqE6q5gZAg_y0&callback=init&libraries=places&sensor=false" async defer></script>
+    <script src="directions.js"></script>
+    <script>
+    function init() {
+        initMap();
+    }
+    </script>
+    
+</body>
+</html>

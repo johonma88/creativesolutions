@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+    <link href="bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="SimpleStarRating.css">
+
+
+    <!-- style.css -->
+
+    <link rel="stylesheet" type="css/txt" href="style.css">
+
+
+    <script type="text/javascript" src="app.js"></script>
+
+
+    <script src="jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Directions service</title>
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #floating-panel {
+            position: absolute;
+            top: 10px;
+            left: 25%;
+            z-index: 5;
+            background-color: #fff;
+            padding: 5px;
+            border: 1px solid #999;
+            text-align: center;
+            font-family: 'Roboto', 'sans-serif';
+            line-height: 30px;
+            padding-left: 10px;
+        }
+
+        .star-rating s:hover {
+            color: red;
+        }
+
+
+        .star-rating s,
+            {
+            color: black;
+            font-size: 70px;
+            cursor: default;
+            text-decoration: none;
+            line-height: 50px;
+        }
+
+        .star-rating {
+            padding: 2px;
+        }
+
+        .star-rating s:hover:before,
+        .star-rating s.rated:before {
+            content: "\2605";
+        }
+
+        .star-rating s:before {
+            content: "\2606";
+        }
+    </style>
+</head>
+
+<body>
+    <div id="floating-panel">
+        <b>Start: </b>
+
+        <input type='text' id="fromPlace" value="">
+
+        <b>End: </b>
+        <input type='text' id="toPlace" value="">
+        <button class="go">GO!</button>
+
+        <br>
+        <select id="placeType">
+            <option  value="gas_station">Gas Station</option>
+            <option  value="restaurant">Restaurants</option>
+            <option  value="lodging">Lodging</option>
+            <option  value="hospital">Hospital</option>
+          </select>
+
+          <select id="radius">
+              <option  value="8046.72">5 Miles</option>
+              <option  value="16093.4">10 Miles</option>
+              <option  value="24140.2">15 Miles</option>
+              <option  value="32186.9">20 Miles</option>
+            </select>
+
+        
+
+        <!-- <h3>Food Preferences</h3>
+        <input type="checkbox" id="italianFood"> Italian Food
+        <input type="checkbox" id="chinneseFood">Asian Food
+        <input type="checkbox" id="hamburguers">Hamburguers
+        <input type="checkbox" id="vegan">Vegan
+        <input type="checkbox" id="seaFood">Sea Food
+
+        <h3>Lodging Preferences </h3>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span> -->
+
+
+
+
+
+    </div>
+    <div id="map"></div>
+    <br>
+    <div id="places"></div>
+    <script>
+        let stops = [];
+        let infowindow;
+        let map;
+        let service;
+        let markers;
+        let radiusNumber;
+        let placeType;
+
+       
+
+        function initMap() {
+            var directionsService = new google.maps.DirectionsService;
+            var directionsDisplay = new google.maps.DirectionsRenderer;
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 7,
+                center: {
+                    lat: 41.85,
+                    lng: -87.65
+                }
+            });
+            infowindow = new google.maps.InfoWindow();
+            directionsDisplay.setMap(map);
+
+            var onChangeHandler = function() {
+                calculateAndDisplayRoute(directionsService, directionsDisplay);
+            };
+            $(".go").click(function() {
+                $("#places").empty();
+                let toPlace = $('#toPlace').val();
+                let fromPlace = $('#fromPlace').val();
+               
+                placeType = document.getElementById('placeType').value;
+                let radius = document.getElementById('radius').value;
+                radiusNumber = parseInt(radius);
+                console.log(radius);
+                onChangeHandler(fromPlace);
+                onChangeHandler(toPlace);
+            })
+
+        }
+
+        function calculateAndDisplayRoute(directionsService, directionsDisplay) {
+      
+        
+      
+
+            directionsService.route({
+                origin: document.getElementById('fromPlace').value,
+                destination: document.getElementById('toPlace').value,
+                travelMode: 'DRIVING'
+            }, function(response, status) {
+                stops = [];
+                stops.push({
+                    lat: response.routes[0].overview_path[0].lat(),
+                    long: response.routes[0].overview_path[0].lng()
+                });
+                for (let index = 1; index < 6; index++) {
+                    let stopIndex = Math.floor(response.routes[0].overview_path.length / 6) * index;
+
+                    stops.push({
+                        lat: response.routes[0].overview_path[stopIndex].lat(),
+                        long: response.routes[0].overview_path[stopIndex].lng()
+                    });
+
+                   
+                }
+                stops.push({
+                    lat: response.routes[0].overview_path[response.routes[0].overview_path.length - 1].lat(),
+                    long: response.routes[0].overview_path[response.routes[0].overview_path.length - 1].lng()
+                });
+                
+                
+
+                if (status === 'OK') {
+                    directionsDisplay.setDirections(response);
+                } else {
+                    window.alert('Directions request failed due to ' + status);
+                }
+
+                service = new google.maps.places.PlacesService(map);
+
+                stops.forEach((stop) => {
+                  service.nearbySearch({
+                        location: {
+                            lat: stop.lat,
+                            lng: stop.long
+                        },
+
+                        radius: radiusNumber,
+                        type: [placeType]
+                }, callback);
+               
+                });
+            });
+        }
+
+
+
+
+        function callback(results, status) {
+         
+            if (status === google.maps.places.PlacesServiceStatus.OK) {
+                for (var i = 0; i < results.length; i++) {
+                    createMarker(results[i]);
+                }
+            }
+        }
+
+        function createMarker(place) {
+          console.log(place);
+          console.log(map);
+            var placeLoc = place.geometry.location;
+            marker = new google.maps.Marker({
+                map: map,
+                position: place.geometry.location
+            });
+            $("#places").append('<p>'+place.name+"  located at: "+place.vicinity+"</p><br>");
+
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.setContent(`<div> <h3> ${place.name}</h3> <br>Address: ${place.vicinity}<br> Rating: ${place.rating}<br> 
+              0 — Free    1 — Inexpensive      2 — Moderate       3 — Expensive      4 — Very Expensive <br> Price Level: ${place.price_level}</div>`);
+              
+              
+                infowindow.open(map, this);
+            });
+        }
+
+       
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgQWcFFJy5yU1T5N-kgCbqE6q5gZAg_y0&libraries=places&callback=initMap" async defer></script>
+
+
+</body>
+
+</html>
