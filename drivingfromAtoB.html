@@ -20,7 +20,9 @@
 
     <script src="jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -33,7 +35,7 @@
        * element that contains the map. */
 
         #map {
-            height: 100%;
+            height: 80%;
         }
 
         /* Optional: Makes the sample page fill the window. */
@@ -120,8 +122,27 @@
     </div>
     <div id="map"></div>
     <br>
-    <div id="places"></div>
+    <div id="places" data-spy="scroll" class="container-fluid"></div>
+
+
+
+
     <script>
+
+       // Initialize Firebase
+       var config = {
+          apiKey: "AIzaSyBGfGLbPCTtwsV0c_zKb98VRXB4Ejs9yU4",
+          authDomain: "project-1-trip-planner.firebaseapp.com",
+          databaseURL: "https://project-1-trip-planner.firebaseio.com",
+          projectId: "project-1-trip-planner",
+          storageBucket: "project-1-trip-planner.appspot.com",
+          messagingSenderId: "374112063927"
+        };
+        firebase.initializeApp(config);
+
+        let database = firebase.database();
+
+
         let stops = [];
         let infowindow;
         let map;
@@ -129,6 +150,12 @@
         let markers;
         let radiusNumber;
         let placeType;
+
+          //Initial firebase variables
+          let toPlaceFB;
+          let fromPlaceFB;
+          let placeTypeFB;
+          let radiusFB;
 
        
 
@@ -148,6 +175,8 @@
             var onChangeHandler = function() {
                 calculateAndDisplayRoute(directionsService, directionsDisplay);
             };
+
+
             $(".go").click(function() {
                 $("#places").empty();
                 let toPlace = $('#toPlace').val();
@@ -160,6 +189,14 @@
                 console.log(radius);
                 onChangeHandler(fromPlace);
                 onChangeHandler(toPlace);
+
+              //firebase
+              toPlaceFB = $('#toPlace').val().trim();
+              fromPlaceFB = $('#fromPlace').val().trim();
+              placeTypeFB = document.getElementById('placeType').value;
+              radiusFB = document.getElementById('radius').value;
+
+
             })
 
         }
@@ -251,7 +288,9 @@
         }
 
        
-    </script>
+  
+       
+      </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgQWcFFJy5yU1T5N-kgCbqE6q5gZAg_y0&libraries=places&callback=initMap" async defer></script>
 
 
