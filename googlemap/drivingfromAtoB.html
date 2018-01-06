@@ -104,8 +104,6 @@
             <option  value="restaurant">Restaurants</option>
             <option  value="lodging">Lodging</option>
             <option  value="hospital">Hospital</option>
-            <option value="grocery_or_supermarket">Groceries</option>
-            <option value="bank">Bank</option>
           </select>
 
           <select id="radius">
@@ -113,9 +111,27 @@
               <option  value="16093.4">10 Miles</option>
               <option  value="24140.2">15 Miles</option>
               <option  value="32186.9">20 Miles</option>
-              <option  value="40233.6">25 Miles</option>
-              <option  value="48280.3">30 Miles</option>
             </select>
+
+        
+
+        <!-- <h3>Food Preferences</h3>
+        <input type="checkbox" id="italianFood"> Italian Food
+        <input type="checkbox" id="chinneseFood">Asian Food
+        <input type="checkbox" id="hamburguers">Hamburguers
+        <input type="checkbox" id="vegan">Vegan
+        <input type="checkbox" id="seaFood">Sea Food
+
+        <h3>Lodging Preferences </h3>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span> -->
+
+
+
+
 
     </div>
     <div id="map"></div>
@@ -154,7 +170,6 @@
                 let fromPlace = $('#fromPlace').val();
                
                 placeType = document.getElementById('placeType').value;
-                $("#places").append('<h3>'+placeType+'</h3>');
                 let radius = document.getElementById('radius').value;
                 radiusNumber = parseInt(radius);
                 console.log(radius);
