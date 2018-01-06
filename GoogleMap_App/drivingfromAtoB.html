@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+
+<html>
+   
+<head>
+
+    <!-- style -->
+   
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <link href="bootstrap.css" rel="stylesheet">
+
+     <!-- style.css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+     <!-- jquery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="jquery.js"></script>
+
+    <!-- Google Maps -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- External JS File here -->
+   <script rel="javascript" type="text/javascript" src="assets/javascript/script.js"></script>
+
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
+
+    <title>Directions service</title>
+  
+</head>
+
+<body>
+    <div id="floating-panel">
+        <b>Start: </b>
+
+        <input type='text' id="fromPlace" value="">
+
+        <b>End: </b>
+        <input type='text' id="toPlace" value="">
+        <button class="go">GO!</button>
+
+        <br>
+        <select id="placeType">
+            <option  value="gas_station">Gas Station</option>
+            <option  value="restaurant">Restaurants</option>
+            <option  value="lodging">Lodging</option>
+            <option  value="hospital">Hospital</option>
+            <option value="grocery_or_supermarket">Groceries</option>
+            <option value="bank">Bank</option>
+          </select>
+
+          <select id="radius">
+              <option  value="8046.72">5 Miles</option>
+              <option  value="16093.4">10 Miles</option>
+              <option  value="24140.2">15 Miles</option>
+              <option  value="32186.9">20 Miles</option>
+              <option  value="40233.6">25 Miles</option>
+              <option  value="48280.3">30 Miles</option>
+            </select>
+
+    </div>
+    <div id="map"></div>
+    <br>
+    <div id="places" data-spy="scroll" class="container-fluid"></div>
+
+
+
+
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgQWcFFJy5yU1T5N-kgCbqE6q5gZAg_y0&libraries=places&callback=initMap" async defer></script>
+
+
+</body>
+
+</html>
