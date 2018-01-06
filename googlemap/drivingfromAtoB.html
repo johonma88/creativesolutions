@@ -20,9 +20,7 @@
 
     <script src="jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -35,7 +33,7 @@
        * element that contains the map. */
 
         #map {
-            height: 80%;
+            height: 100%;
         }
 
         /* Optional: Makes the sample page fill the window. */
@@ -106,8 +104,6 @@
             <option  value="restaurant">Restaurants</option>
             <option  value="lodging">Lodging</option>
             <option  value="hospital">Hospital</option>
-            <option value="grocery_or_supermarket">Groceries</option>
-            <option value="bank">Bank</option>
           </select>
 
           <select id="radius">
@@ -115,34 +111,33 @@
               <option  value="16093.4">10 Miles</option>
               <option  value="24140.2">15 Miles</option>
               <option  value="32186.9">20 Miles</option>
-              <option  value="40233.6">25 Miles</option>
-              <option  value="48280.3">30 Miles</option>
             </select>
+
+        
+
+        <!-- <h3>Food Preferences</h3>
+        <input type="checkbox" id="italianFood"> Italian Food
+        <input type="checkbox" id="chinneseFood">Asian Food
+        <input type="checkbox" id="hamburguers">Hamburguers
+        <input type="checkbox" id="vegan">Vegan
+        <input type="checkbox" id="seaFood">Sea Food
+
+        <h3>Lodging Preferences </h3>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span> -->
+
+
+
+
 
     </div>
     <div id="map"></div>
     <br>
-    <div id="places" data-spy="scroll" class="container-fluid"></div>
-
-
-
-
+    <div id="places"></div>
     <script>
-
-       // Initialize Firebase
-       var config = {
-          apiKey: "AIzaSyBGfGLbPCTtwsV0c_zKb98VRXB4Ejs9yU4",
-          authDomain: "project-1-trip-planner.firebaseapp.com",
-          databaseURL: "https://project-1-trip-planner.firebaseio.com",
-          projectId: "project-1-trip-planner",
-          storageBucket: "project-1-trip-planner.appspot.com",
-          messagingSenderId: "374112063927"
-        };
-        firebase.initializeApp(config);
-
-        let database = firebase.database();
-
-
         let stops = [];
         let infowindow;
         let map;
@@ -150,12 +145,6 @@
         let markers;
         let radiusNumber;
         let placeType;
-
-          //Initial firebase variables
-          let toPlaceFB;
-          let fromPlaceFB;
-          let placeTypeFB;
-          let radiusFB;
 
        
 
@@ -175,28 +164,17 @@
             var onChangeHandler = function() {
                 calculateAndDisplayRoute(directionsService, directionsDisplay);
             };
-
-
             $(".go").click(function() {
                 $("#places").empty();
                 let toPlace = $('#toPlace').val();
                 let fromPlace = $('#fromPlace').val();
                
                 placeType = document.getElementById('placeType').value;
-                $("#places").append('<h3>'+placeType+'</h3>');
                 let radius = document.getElementById('radius').value;
                 radiusNumber = parseInt(radius);
                 console.log(radius);
                 onChangeHandler(fromPlace);
                 onChangeHandler(toPlace);
-
-              //firebase
-              toPlaceFB = $('#toPlace').val().trim();
-              fromPlaceFB = $('#fromPlace').val().trim();
-              placeTypeFB = document.getElementById('placeType').value;
-              radiusFB = document.getElementById('radius').value;
-
-
             })
 
         }
@@ -288,9 +266,7 @@
         }
 
        
-  
-       
-      </script>
+    </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgQWcFFJy5yU1T5N-kgCbqE6q5gZAg_y0&libraries=places&callback=initMap" async defer></script>
 
 
