@@ -1,8 +1,14 @@
-#header1
+/* #header1
 {
     width: 100%;
     margin-left: 5%;
     margin-right: 0%;
+} */
+
+#socialIcons
+{
+    width: 100%;
+    margin-left: -6%;
 }
 
 #portfolio1
@@ -15,8 +21,8 @@
 
 #picOfjh, #picOfak, #picOfmw, #picOfla, #picmk
 {
-    /* float:left; */
-    /* padding-right: 2%; */
+    float:left;
+    padding-right: 2%;
     width: 200px;
     padding-bottom: 1%;
 }
