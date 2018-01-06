@@ -138,10 +138,10 @@
           storageBucket: "project-1-trip-planner.appspot.com",
           messagingSenderId: "374112063927"
         };
+
         firebase.initializeApp(config);
 
         let database = firebase.database();
-
 
         let stops = [];
         let infowindow;
@@ -156,8 +156,6 @@
           let fromPlaceFB;
           let placeTypeFB;
           let radiusFB;
-
-       
 
         function initMap() {
             var directionsService = new google.maps.DirectionsService;
@@ -196,10 +194,49 @@
               placeTypeFB = document.getElementById('placeType').value;
               radiusFB = document.getElementById('radius').value;
 
+            //Creating an Object to store the data in firebase (key: value)
+            userData = {
+            toPlace: toPlaceFB,
+            fromPlace: fromPlaceFB,
+            placeType: placeTypeFB,
+            radiusInMeters: radiusFB,
+            }
 
-            })
+            // push user input data into firebase
+            database.ref().push(userData);
+
+            });
+            new AutocompleteDirectionsHandler(map);
 
         }
+
+        function AutocompleteDirectionsHandler(map) {
+        this.map = map;
+        this.originPlaceId = null;
+        this.destinationPlaceId = null;
+        this.travelMode = 'DRIVING';
+        var originInput = document.getElementById('fromPlace');
+        var destinationInput = document.getElementById('toPlace');
+      
+        this.directionsService = new google.maps.DirectionsService;
+        this.directionsDisplay = new google.maps.DirectionsRenderer;
+        this.directionsDisplay.setMap(map);
+
+        var originAutocomplete = new google.maps.places.Autocomplete(
+            originInput, {placeIdOnly: true});
+        var destinationAutocomplete = new google.maps.places.Autocomplete(
+            destinationInput, {placeIdOnly: true});
+
+
+        this.setupPlaceChangedListener(originAutocomplete, 'fromPlace');
+        this.setupPlaceChangedListener(destinationAutocomplete, 'toPlace');
+
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+        this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
+      
+      }
+
+
 
         function calculateAndDisplayRoute(directionsService, directionsDisplay) {
       
