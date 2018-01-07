@@ -34,7 +34,9 @@ function initMap() {
         center: {
             lat: 41.85,
             lng: -87.65
-        }
+        },
+        gestureHandling: 'none',
+        zoomControl: false
     });
     infowindow = new google.maps.InfoWindow();
     directionsDisplay.setMap(map);
@@ -181,14 +183,14 @@ function callback(results, status) {
 function createMarker(place) {
     console.log(place);
     console.log(map);
-    var placeLoc = place.geometry.location;
-    marker = new google.maps.Marker({
-        map: map,
-        position: place.geometry.location
-    });
-    $("#places").append('<p>' + place.name + "  located at: " + place.vicinity + "</p><br>");
+      var placeLoc = place.geometry.location;
+      marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+      });
+      $("#places").append('<li>  '+place.name+"  located at: "+place.vicinity+"</li><br>");
 
-    google.maps.event.addListener(marker, 'click', function() {
+      google.maps.event.addListener(marker, 'click', function() {
         infowindow.setContent(`<div> <h3> ${place.name}</h3> <br>Address: ${place.vicinity}<br> Rating: ${place.rating}<br> 
         0 — Free    1 — Inexpensive      2 — Moderate       3 — Expensive      4 — Very Expensive <br> Price Level: ${place.price_level}</div>`);
 

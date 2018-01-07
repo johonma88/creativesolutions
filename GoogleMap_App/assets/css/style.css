@@ -3,6 +3,8 @@
 
        #map {
         height: 80%;
+        position: fixed;
+        top: 0;
     }
 
     /* Optional: Makes the sample page fill the window. */
@@ -53,4 +55,13 @@
 
     .star-rating s:before {
         content: "\2606";
+    }
+
+    #places {
+       
+        
+        width: 90%;
+        height: 20%;
+        overflow: scroll;
+        border: none;
     }
