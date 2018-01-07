@@ -50,7 +50,7 @@ var config = {
           let fromPlace = $('#fromPlace').val();
          
           placeType = document.getElementById('placeType').value;
-          $("#places").append('<h3>'+placeType+'</h3>');
+          $("#places").append('<ul><h3>'+placeType+'</h3></ul>');
           let radius = document.getElementById('radius').value;
           radiusNumber = parseInt(radius);
           console.log(radius);
@@ -182,7 +182,7 @@ var config = {
           map: map,
           position: place.geometry.location
       });
-      $("#places").append('<p>'+place.name+"  located at: "+place.vicinity+"</p><br>");
+      $("#places").append('<li>  '+place.name+"  located at: "+place.vicinity+"</li><br>");
 
       google.maps.event.addListener(marker, 'click', function() {
         infowindow.setContent(`<div> <h3> ${place.name}</h3> <br>Address: ${place.vicinity}<br> Rating: ${place.rating}<br> 

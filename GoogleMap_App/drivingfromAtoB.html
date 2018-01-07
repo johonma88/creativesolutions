@@ -4,15 +4,17 @@
 <html>
    
 <head>
+      <!-- style.css -->
+      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
     <!-- style -->
    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="bootstrap.css" rel="stylesheet">
 
-     <!-- style.css -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+   
 
      <!-- jquery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -35,7 +37,7 @@
   
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
     <div id="floating-panel">
         <b>Start: </b>
 
@@ -43,7 +45,7 @@
 
         <b>End: </b>
         <input type='text' id="toPlace" value="">
-        <button class="go">GO!</button>
+        <button class="go">LET'S GO!</button>
 
         <br>
         <select id="placeType">
@@ -65,7 +67,14 @@
             </select>
 
     </div>
-    <div id="map"></div>
+<div class='row'>
+
+</div>
+           
+    <div id="map" class="container-fixed" ></div>
+           
+         
+   
     <br>
     <div id="places" data-spy="scroll" class="container-fluid"></div>
 
