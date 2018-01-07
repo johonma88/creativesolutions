@@ -34,7 +34,9 @@ var config = {
           center: {
               lat: 41.85,
               lng: -87.65
-          }
+          },
+          gestureHandling: 'none',
+          zoomControl: false
       });
       infowindow = new google.maps.InfoWindow();
       directionsDisplay.setMap(map);
