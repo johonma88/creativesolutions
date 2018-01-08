@@ -18,8 +18,8 @@
 
     #floating-panel {
         position: absolute;
-        top: 10px;
-        left: 25%;
+        top: 50px;
+        left: 20px;
         z-index: 5;
         background-color: #fff;
         padding: 5px;
@@ -30,32 +30,7 @@
         padding-left: 10px;
     }
 
-    .star-rating s:hover {
-        color: red;
-    }
-
-
-    .star-rating s,
-        {
-        color: black;
-        font-size: 70px;
-        cursor: default;
-        text-decoration: none;
-        line-height: 50px;
-    }
-
-    .star-rating {
-        padding: 2px;
-    }
-
-    .star-rating s:hover:before,
-    .star-rating s.rated:before {
-        content: "\2605";
-    }
-
-    .star-rating s:before {
-        content: "\2606";
-    }
+  
 
     #places {
        
@@ -64,4 +39,8 @@
         height: 20%;
         overflow: scroll;
         border: none;
+    }
+    
+    .table th {
+        text-align:center;
     }

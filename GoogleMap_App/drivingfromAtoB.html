@@ -13,6 +13,7 @@
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
    
 
@@ -40,15 +41,13 @@
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
     <div id="floating-panel">
         <b>Start: </b>
-
-        <input type='text' id="fromPlace" value="">
-
-        <b>End: </b>
-        <input type='text' id="toPlace" value="">
-        <button class="go">LET'S GO!</button>
-
         <br>
-        <span>I want to go this far </span>
+        <input type='text' id="fromPlace" value=""><br>
+
+        <b>End: </b><br>
+        <input type='text' id="toPlace" value=""><br>
+        <br>
+        <span>I want to go  </span>
         <select id="radius">
                 <option  value="8046.72">5 Miles</option>
                 <option  value="16093.4">10 Miles</option>
@@ -56,8 +55,8 @@
                 <option  value="32186.9">20 Miles</option>
                 <option  value="40233.6">25 Miles</option>
                 <option  value="48280.3">30 Miles</option>
-              </select>
-        <span> from my route to find this </span>
+              </select><br>
+        <span> from my route to find </span>
         <select id="placeType">
             <option  value="gas_station">Gas Station</option>
             <option  value="restaurant">Restaurants</option>
@@ -65,14 +64,15 @@
             <option  value="hospital">Hospital</option>
             <option value="grocery_or_supermarket">Groceries</option>
             <option value="bank">Bank</option>
-          </select>
+          </select><br><br>
+        <button class="go">LET'S GO!</button>
+
+        
 
         
 
     </div>
-<div class='row'>
 
-</div>
            
     <div id="map" class="container-fixed" ></div>
            
