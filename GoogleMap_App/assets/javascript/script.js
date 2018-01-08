@@ -52,7 +52,9 @@ function initMap() {
         let fromPlace = $('#fromPlace').val();
 
         placeType = document.getElementById('placeType').value;
-        $("#places").append('<h3>' + placeType + '</h3>'+
+        let placeTypeText = $( "#placeType option:selected" ).text();
+     
+        $("#places").append('<h3>' + placeTypeText  + '</h3>'+
         '<table class="table table-striped text-center">' +
         '<thead>' +
         '<tr>' +
