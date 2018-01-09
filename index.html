@@ -1,51 +1,66 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width", initial-scale="1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-             <!--BOOTSTRAP CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-            <!-- OPTIONAL THEME-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-            <!--JAVASCRIPT-BOOTSTRAP -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-            <!--JQUERY-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <!--CSS STYLE SHEET-->
-        <link rel="stylesheet" type="text/css" href=".\roadtrip.css">
-    </head>
-    <body>
-<div class="container">
-    
-      <header>
-        <h2><a href="#"><i class="ion-plane"></i> Road Trip Planner</a></h2>
-        <nav>
-          <ul>
-            <li>
-              <a href="#" title="Hotels">Guest Login</a>
-            </li>
-            <li>
-              <a href="#" title="Flights">Google Login</a>
-            </li>
-            <li>
-              <a href="#" title="Tours">About Us</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
-    
-      <div class="cover">
-        <h1>So...Where do you want to go?</h1>
-        <form  class="flex-form">
-          <!-- <label for="from">
-            <i class="ion-location"></i>
-          </label> -->
-          <input type="search" placeholder="Starting Location">
-          <input type="submit" value="Search">
-        </form>
-      </div>
-    
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Roadtrip Planner</title>
+
+    <link rel="stylesheet" type="text/css" href="./LandingPage/assets/css/reset.css">
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Additional Styling -->
+    <link rel="stylesheet" type="text/css" href="./LandingPage/assets/css/style.css">
+
+    <link rel="icon" type="image/png" href="favicon-96x96.png">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h1>Road Trip Planner</h1>
+                </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="col-md-12 text-center" id="centerPage">
+            
+            <div class="col-md-12 text-center" id="intro">
+                <h1>So...Where do you want to go?</h1>
+                <form>
+                    <button type="button" id="buttonIni"><a href="./GoogleMap_App/drivingfromAtoB.html">Lets Get Started!</a></button>
+                </form>
+            </div>
+
+        </div>
     </div>
+
+    <footer class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h6>@Copyright 2018 - Powered by <a href="./CreativeSolutionsWebsite/index.html" target="_blank">Cre@tive Solutions</a></h6>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+    <!-- Bootstrap JavaScript CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- External JS File here -->
+    <!-- <script src="./LandingPage/assets/javascript/app.js"></script> -->
+
 </body>
+
 </html>

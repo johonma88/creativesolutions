@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+::-webkit-input-placeholder {
+  color: #56585b;
+}
+
+::-moz-placeholder {
+  color: #56585b;
+}
+
+:-moz-placeholder {
+  color: #56585b;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  background: url('https://images.unsplash.com/photo-1477951233099-d2c5fbd878ee?auto=format&fit=crop&w=3898&q=80') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  color: #0a0a0b;
+  overflow: hidden;
+}
+
+ul, nav{
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: 0.9;
+}
+
+a:hover {
+  opacity: 1;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 1.5rem;
+}
+
+i {
+  font-size: 1.3rem;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: #fff;
+  padding: 10px 100px 0;
+}
+
+header nav ul {
+  display: flex;
+}
+
+header nav li{
+  margin: 0 15px;
+}
+
+header nav li:first-child{
+  margin-left: 0; 
+}
+
+header nav li:last-child{
+  margin-right: 0;  
+}
+
+a.btn {
+  color: #fff;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,0.5);
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+a.btn:hover {
+  background: #d73851;
+  border: 1px solid #d73851;
+  color: #fff;
+}
+
+.cover  {
+  height: 100%;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.05)), to(rgba(0,0,0,0)));
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+  padding: 20px 50px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+} 
+
+footer
+{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-top: 10px solid #337ab7;
+    width: 100%; 
+    margin-top: 60px;
+    padding: 10px 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    text-align: center;
+}

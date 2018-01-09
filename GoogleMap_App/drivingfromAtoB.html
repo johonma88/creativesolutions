@@ -5,17 +5,24 @@
    
 <head>
 
+
+      <!-- style.css -->
+      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
     <!-- style -->
    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link href="bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-     <!-- style.css -->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
 
      <!-- jquery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="jquery.js"></script>
 
@@ -35,17 +42,28 @@
   
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+     
     <div id="floating-panel">
-        <b>Start: </b>
-
-        <input type='text' id="fromPlace" value="">
-
-        <b>End: </b>
-        <input type='text' id="toPlace" value="">
-        <button class="go">GO!</button>
-
+        <br><br>
+        <b id="tag">Start: </b>
         <br>
+        <input type='text' id="fromPlace" value=""><br>
+
+        <b id="tag">End: </b><br>
+        <input type='text' id="toPlace" value=""><br>
+        <br>
+        <span>I want to go  </span>
+        <select id="radius">
+                <option  value="8046.72">5 Miles</option>
+                <option  value="16093.4">10 Miles</option>
+                <option  value="24140.2">15 Miles</option>
+                <option  value="32186.9">20 Miles</option>
+                <option  value="40233.6">25 Miles</option>
+                <option  value="48280.3">30 Miles</option>
+              </select><br>
+        <span> from my route to find </span>
         <select id="placeType">
             <option  value="gas_station">Gas Station</option>
             <option  value="restaurant">Restaurants</option>
@@ -53,19 +71,30 @@
             <option  value="hospital">Hospital</option>
             <option value="grocery_or_supermarket">Groceries</option>
             <option value="bank">Bank</option>
-          </select>
+          </select><br><br>
+        <button class="go">LET'S GO!</button>
 
-          <select id="radius">
-              <option  value="8046.72">5 Miles</option>
-              <option  value="16093.4">10 Miles</option>
-              <option  value="24140.2">15 Miles</option>
-              <option  value="32186.9">20 Miles</option>
-              <option  value="40233.6">25 Miles</option>
-              <option  value="48280.3">30 Miles</option>
-            </select>
+   
+    <div id="floating-panel1">
+        
+               <div style="width: 210px;">
+                   <iframe style="display: block;" src="https://cdnres.willyweather.com/widget/loadView.html?id=79134" width="210" height="228" frameborder="0" scrolling="no"></iframe>
+               
+                   <a style="position: relative;margin: -20px 0 0 0;height: 20px;display: block;z-index: 1;text-indent: -9999em" href="https://www.willyweather.com/co/denver-county/denver.html" rel="nofollow">The latest weather for denver</a></div>
+        
+           </div>
+          
+        </div>  
+        <div id="floating-panel2">
+                <button onclick="myFunction()" id="paneToggle">Hide/Show</button> 
+        </div>
+        
+       
 
-    </div>
-    <div id="map"></div>
+    <div id="map" class="container-fixed" ></div>
+           
+         
+   
     <br>
     <div id="places" data-spy="scroll" class="container-fluid"></div>
 

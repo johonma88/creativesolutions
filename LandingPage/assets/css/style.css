@@ -1,0 +1,78 @@
+body
+{
+    background: url('https://images.unsplash.com/photo-1477951233099-d2c5fbd878ee?auto=format&fit=crop&w=3898&q=80') no-repeat center center fixed;
+}
+
+header 
+{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-bottom: 10px solid #337ab7;
+    margin-bottom: 30px;
+    width: 100%;    
+}
+
+.container
+{
+    width: 100%;
+    height: auto;
+}
+
+#intro
+{
+    width: 100%;
+    height: auto;
+    margin-top: 15%;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+#buttonIni, button a
+{
+    background-color: #337ab7;
+    font-weight: 400;
+    font-size: 16px;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+button a:hover
+{
+    background-color: #337ab7;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+
+footer
+{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    background-color: black;
+    color: white;
+    border-top: 10px solid #337ab7;
+    width: 100%; 
+    margin-top: 60px;
+    padding: 10px 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    text-align: center;
+}
