@@ -16,7 +16,7 @@ let stops = [];
 let infowindow;
 let map;
 let service;
-let markers;
+let markers = [];
 let radiusNumber;
 let placeType;
 
@@ -49,9 +49,11 @@ function initMap() {
         calculateAndDisplayRoute(directionsService, directionsDisplay);
     };
 
+  
+
 
     $(".go").click(function() {
-        
+       
         $("#places").empty();
         let toPlace = $('#toPlace').val();
         let fromPlace = $('#fromPlace').val();
@@ -132,7 +134,11 @@ function AutocompleteDirectionsHandler(map) {
 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
+    markers.forEach(marker => {
+        marker.setMap(null);
+    });
 
+    markers = [];
 
 
     directionsService.route({
@@ -189,7 +195,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
 
 function callback(results, status) {
-
     if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
             createMarker(results[i]);
@@ -198,13 +203,14 @@ function callback(results, status) {
 }
 
 function createMarker(place) {
+    
     console.log(place);
     console.log(map);
       var placeLoc = place.geometry.location;
-      marker = new google.maps.Marker({
+      markers.push(new google.maps.Marker({
           map: map,
           position: place.geometry.location
-      });
+      }));
     //   $("#places").append('<li>  '+place.name+"  located at: "+place.vicinity+"</li><br>");
         $("#tablePlaces").append( '<tr>' +
         '<td>' + place.name +'</td>' +
@@ -220,6 +226,7 @@ function createMarker(place) {
     });
 }
  
+
 
 
 function myFunction() {

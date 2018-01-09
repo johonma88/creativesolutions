@@ -57,14 +57,17 @@
         top: 70px;
         left: 0px;
         z-index: 5;
-        background-color: #fff;
+        
         padding: 5px;
-        border: 1px solid #999;
+        
         text-align: center;
         font-family: 'Roboto', 'sans-serif';
         line-height: 30px;
         padding-left: 10px;
         float: left;
+        background:rgba(255,255,255,0.0);
+        
+
        
     }
 
