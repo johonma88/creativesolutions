@@ -10,8 +10,10 @@ var config = {
 
 firebase.initializeApp(config);
 
+//Firebase variable
 let database = firebase.database();
 
+// Global variables
 let stops = [];
 let infowindow;
 let map;
@@ -29,7 +31,7 @@ let placeTypeFB;
 let radiusFB;
 
 
-
+//This function display the initial map
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
     var directionsDisplay = new google.maps.DirectionsRenderer;
@@ -39,8 +41,8 @@ function initMap() {
             lat: 41.85,
             lng: -87.65
         },
-        gestureHandling: 'none',
-        zoomControl: false
+        // gestureHandling: 'none',
+        // // zoomControl: false
     });
     infowindow = new google.maps.InfoWindow();
     directionsDisplay.setMap(map);
@@ -51,30 +53,39 @@ function initMap() {
 
   
 
-
+    // Function when the GO  button is clicked
     $(".go").click(function() {
        
         $("#places").empty();
         let toPlace = $('#toPlace').val();
         let fromPlace = $('#fromPlace').val();
 
+        //get the value from the selected option
         placeType = document.getElementById('placeType').value;
+
+        //get the text from the selected option
         let placeTypeText = $( "#placeType option:selected" ).text();
-     
+        
+        //create the table in the places div
         $("#places").append('<h3>' + placeTypeText  + '</h3>'+
         '<table class="table table-striped text-center">' +
         '<thead>' +
         '<tr>' +
         '<th>' + 'Place Name' + '</th>' +
         '<th>' + 'Located At' + '</th>' +
+        '<th>' + 'Rating' + '</th>' +
+        '<th>' + 'Price Level' + '</th>' +
         '</tr>' +
         '</thead>' +
         '<tbody id="tablePlaces">'+
         '</tbody>'+
          "</table>");
+
+         //get the value from the selected radius 
         let radius = document.getElementById('radius').value;
+        //convert the value into a number
         radiusNumber = parseInt(radius);
-        console.log(radius);
+       
         onChangeHandler(fromPlace);
         onChangeHandler(toPlace);
 
@@ -100,6 +111,7 @@ function initMap() {
 
 }
 
+//Autocomplete function from google map
 function AutocompleteDirectionsHandler(map) {
     this.map = map;
     this.originPlaceId = null;
@@ -125,13 +137,22 @@ function AutocompleteDirectionsHandler(map) {
     this.setupPlaceChangedListener(originAutocomplete, 'fromPlace');
     this.setupPlaceChangedListener(destinationAutocomplete, 'toPlace');
 
-    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
-    this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
+
 
 }
 
+//Place Change listener for the Autocomplete function
+AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
+    var me = this;
+    autocomplete.bindTo('bounds', this.map);
+    autocomplete.addListener('place_changed', function() {
+      var place = autocomplete.getPlace();
+    
+    });
 
+  };
 
+//Calculate and display the route 
 function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
     markers.forEach(marker => {
@@ -139,7 +160,6 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
     });
 
     markers = [];
-
 
     directionsService.route({
         origin: document.getElementById('fromPlace').value,
@@ -158,17 +178,13 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
                 lat: response.routes[0].overview_path[stopIndex].lat(),
                 long: response.routes[0].overview_path[stopIndex].lng()
             });
-
-
         }
         stops.push({
             lat: response.routes[0].overview_path[response.routes[0].overview_path.length - 1].lat(),
             long: response.routes[0].overview_path[response.routes[0].overview_path.length - 1].lng()
         });
 
-
-
-        if (status === 'OK') {
+         if (status === 'OK') {
             directionsDisplay.setDirections(response);
         } else {
             window.alert('Directions request failed due to ' + status);
@@ -193,7 +209,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay) {
 
 
 
-
+//callback for googlemap
 function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
@@ -202,34 +218,35 @@ function callback(results, status) {
     }
 }
 
+
 function createMarker(place) {
-    
     console.log(place);
-    console.log(map);
       var placeLoc = place.geometry.location;
       markers.push(new google.maps.Marker({
           map: map,
           position: place.geometry.location
       }));
-    //   $("#places").append('<li>  '+place.name+"  located at: "+place.vicinity+"</li><br>");
+      // append data into the table
         $("#tablePlaces").append( '<tr>' +
         '<td>' + place.name +'</td>' +
         '<td>' + place.vicinity +'</td>' +
+        '<td>' + (place.rating ? place.rating: 'n/a' )+'</td>' +
+        '<td>' + (place.price_level ? place.price_level: 'n/a') +'</td>' +
          '</tr>' ) ;     
 
-      google.maps.event.addListener(marker, 'click', function() {
+      // put data into the marker info window
+      google.maps.event.addListener(markers[markers.length - 1], 'click', function() {
         infowindow.setContent(`<div> <h3> ${place.name}</h3> <br>Address: ${place.vicinity}<br> Rating: ${place.rating}<br> 
-        0 — Free    1 — Inexpensive      2 — Moderate       3 — Expensive      4 — Very Expensive <br> Price Level: ${place.price_level}</div>`);
+        0 — Free    1 — Inexpensive      2 — Moderate       3 — Expensive      4 — Very Expensive <br> Price Level: ${place.price_level}  </div>`);
 
-
-        infowindow.open(map, this);
+         infowindow.open(map, this);
     });
 }
  
 
 
 
-function myFunction() {
+function hideShow() {
     var x = document.getElementById("floating-panel");
     if (x.style.display === "none") {
         x.style.display = "block";
