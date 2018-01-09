@@ -2,7 +2,7 @@
 
 Team Members:
 -Johanna Honma
--Anthony Khen
+-Anthony Kehn
 -Miguel Woroniak
 -Larisa Anderson
 -Madison Kalivoda
