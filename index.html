@@ -17,7 +17,9 @@
     </head>
     <body>
         <div class="container">
-              <header>
+     
+              <header class="sticky-header">
+                         
                 <h2><a href="#"><i class="ion-plane"></i> Road Trip Planner</a></h2>
                 <nav>
                   <ul>
@@ -37,13 +39,21 @@
               <div class="cover">
                 <h1>So...Where do you want to go?</h1>
                 <form  class="flex-form">
-                  <label for="from">
+                  <!-- <label for="from">
                     <i class="ion-location"></i>
-                  </label>
-                  <input type="search" placeholder="Where do you want to go?">
+                  </label> -->
+                  <input id="input1" type="search" placeholder="Where would you like to start?">
+                  <input type="submit" value="Search">
+                  <space></space>
+                  <input id="input2" type="search" placeholder="Where do you want to go?">
                   <input type="submit" value="Search">
                 </form>
               </div>
-            
             </div>
+
+            <footer class="sticky-footer">
+                    &copy; Copyright protected 
+                  </footer> 
     </body>
+
+          
