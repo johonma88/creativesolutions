@@ -1,14 +1,21 @@
+<<<<<<< HEAD
+#header1
+=======
 /* #header1
+>>>>>>> master
 {
     width: 100%;
     margin-left: 5%;
     margin-right: 0%;
+<<<<<<< HEAD
+=======
 } */
 
 #socialIcons
 {
     width: 100%;
     margin-left: -6%;
+>>>>>>> master
 }
 
 #portfolio1
@@ -21,8 +28,13 @@
 
 #picOfjh, #picOfak, #picOfmw, #picOfla, #picmk
 {
+<<<<<<< HEAD
+    /* float:left; */
+    /* padding-right: 2%; */
+=======
     float:left;
     padding-right: 2%;
+>>>>>>> master
     width: 200px;
     padding-bottom: 1%;
 }
