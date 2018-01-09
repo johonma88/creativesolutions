@@ -20,11 +20,15 @@ let markers;
 let radiusNumber;
 let placeType;
 
+
+
 //Initial firebase variables
 let toPlaceFB;
 let fromPlaceFB;
 let placeTypeFB;
 let radiusFB;
+
+
 
 function initMap() {
     var directionsService = new google.maps.DirectionsService;
@@ -47,6 +51,7 @@ function initMap() {
 
 
     $(".go").click(function() {
+        
         $("#places").empty();
         let toPlace = $('#toPlace').val();
         let fromPlace = $('#fromPlace').val();
@@ -58,12 +63,8 @@ function initMap() {
         '<table class="table table-striped text-center">' +
         '<thead>' +
         '<tr>' +
-        '<th>' +
-        'Place Name' +
-        '</th>' +
-        '<th>' +
-        'Located At' +
-        '</th>' +
+        '<th>' + 'Place Name' + '</th>' +
+        '<th>' + 'Located At' + '</th>' +
         '</tr>' +
         '</thead>' +
         '<tbody id="tablePlaces">'+
@@ -206,12 +207,8 @@ function createMarker(place) {
       });
     //   $("#places").append('<li>  '+place.name+"  located at: "+place.vicinity+"</li><br>");
         $("#tablePlaces").append( '<tr>' +
-        '<td>' +
-        place.name +
-        '</td>' +
-        '<td>' +
-         place.vicinity +
-         '</td>' +
+        '<td>' + place.name +'</td>' +
+        '<td>' + place.vicinity +'</td>' +
          '</tr>' ) ;     
 
       google.maps.event.addListener(marker, 'click', function() {
@@ -221,6 +218,17 @@ function createMarker(place) {
 
         infowindow.open(map, this);
     });
+}
+ 
+
+
+function myFunction() {
+    var x = document.getElementById("floating-panel");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
 }
 
  
