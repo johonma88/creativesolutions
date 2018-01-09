@@ -4,18 +4,10 @@
 <html>
    
 <head>
-
-
-      <!-- style.css -->
-      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-    <!-- style -->
+       <!-- style.css -->
+       <link rel="stylesheet" type="text/css" href="assets/css/style.css">
    
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="bootstrap.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+ 
 
     <!-- fonts -->
     <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
@@ -24,17 +16,26 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="jquery.js"></script>
 
-    <!-- Google Maps -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+   <!-- Firebase -->
+   <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    
+
+
+
+    <!-- External style -->
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   
+          <!-- External JS File here -->
+          <script rel="javascript" type="text/javascript" src="assets/javascript/script.js"></script>
+         
+    <!-- Google Maps -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
 
-    <!-- External JS File here -->
-   <script rel="javascript" type="text/javascript" src="assets/javascript/script.js"></script>
-
+    
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 
 
@@ -86,7 +87,7 @@
           
         </div>  
         <div id="floating-panel2">
-                <button onclick="myFunction()" id="paneToggle">Hide/Show</button> 
+                <button onclick="hideShow()" id="paneToggle">Hide/Show</button> 
         </div>
         
        
@@ -103,6 +104,10 @@
 
     
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgQWcFFJy5yU1T5N-kgCbqE6q5gZAg_y0&libraries=places&callback=initMap" async defer></script>
+    
+ 
+
+   
 
 
 </body>
