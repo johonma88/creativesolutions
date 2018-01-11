@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+body 
+{
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  background: url('https://images.unsplash.com/photo-1477951233099-d2c5fbd878ee?auto=format&fit=crop&w=3898&q=80') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  color: #0a0a0b;
+  overflow: hidden; 
+}
+
+
+h1
+{
+  font-family: 'Indie Flower', cursive;
+  font-size: 70px;
+  font-weight: 700;
+  color: #fff;
+  margin: 10% 0 10% 0;
+}
+
+.cover  
+{
+  height: 100%;
+  width: 100%;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.05)), to(rgba(0,0,0,0)));
+  background: -webkit-linear-gradient(top, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+  padding: 20px 50px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+}
+
+#car 
+{
+width: 400px;
+opacity: 1.0;
+}
+
+#main-txt 
+{
+  font-size: 68px;
+  font-weight: bold;
+}
+
+#button1
+{
+  font-family: 'Kalam', cursive;
+  margin: 2% 0 20% 0;
+  border: none;
+  font-size: 30px;
+}
+
+a.animated-button.victoria-one:after 
+{
+  background: rgba(0,0,0,0.5);
+}
+
+a.animated-button:link
+{
+  color: black;
+}
+
+footer
+{
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    width: 100%; 
+    margin-top: 60px;
+    padding: 10px 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    text-align: center;
+}
+
+
+  

@@ -1,0 +1,43 @@
+TABLE OF CONTENTS:
+
+MAIN - CREATIVESOLUTIONS REPOSITORY:
+
+	* assets.LandP (folder): Landing Page assets folder
+			-css (folder): styling
+			-javascript (folder): app functionality
+
+
+	* CreativeSolutionsWebsite (folder): Our "Pseudo" Company Website
+		-css (folder)
+			-font-awesome (folder): fonts and styling.
+			-micons (folder): fonts and styling.
+			-animate.css
+			-base.css
+			-fonts.css
+			-main.css
+			-style.css
+			-vendor.css
+
+		-fonts (folder): main fonts folder.
+		-images (folder): as the name implies, this is where all of the displayed pics on our website are stored.
+		-inc (folder)
+		-js (folder): this is where all of the .js files are stored
+		-favicon-32x32.png
+		-index.html
+
+	* GoogleMap_App (folder): Google Map part of our project's website
+		-assets (folder)
+			-css (folder): styling
+			-javascript (folder): app functionality
+			-.DS_Store
+		-.DS_Store
+		-drivingfromAtoB.html
+
+	
+	* .DS_Store
+
+	* favicon-96X96.png: favicon for project.
+
+	* index.html: html corresponding to the landing page.
+
+	* README.md
